@@ -1,6 +1,7 @@
 # SignalApi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.<br/>
+**Deploy do projeto na vercel e pode ser acessado através do link: https://todolistsignal-yg7v.vercel.app/**
 
 ## Development server
 
