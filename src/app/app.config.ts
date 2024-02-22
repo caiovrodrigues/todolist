@@ -6,6 +6,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes)
+    provideRouter(
+      routes,
+      withViewTransitions(),
+      ),
+      provideAnimationsAsync()
   ]
 };
