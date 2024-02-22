@@ -1,0 +1,56 @@
+<div class="container">
+    <mat-tab-group>
+        <mat-tab label="Tarefas pendentes">
+            <div class="cards-area">
+                @for (item of todoList; track $index) {
+                    @if (!item.done) {
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>{{item.title}}</mat-card-title>
+                                <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-actions class="buttons-area">
+                                <button mat-fab color="primary" (click)="markAsDone(item)">
+                                    <mat-icon>done</mat-icon>
+                                </button>
+                                <button mat-fab color="accent" (click)="edit(item)">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button mat-fab color="warn" (click)="delete(item)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    }
+                }@empty {
+                    <p>Não há tarefas cadastradas</p>
+                }
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Concluídas">
+            <div class="cards-area">
+                @for (item of todoList; track $index) {
+                    @if (item.done) {
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>{{item.title}}</mat-card-title>
+                                <mat-card-subtitle>{{item.description}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-actions class="buttons-area">
+                                <button mat-fab color="primary" (click)="markAsDone(item)">
+                                    <mat-icon>done</mat-icon>
+                                </button>
+                                <button mat-fab color="warn" (click)="delete(item)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </mat-card-actions>
+                        </mat-card>
+                    }
+                }@empty {
+                    <p>Não há tarefas cadastradas</p>
+                }
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

@@ -1,0 +1,33 @@
+<div class="form-area">
+    <h1>{{titleForm}} task</h1>
+    <form [formGroup]="taskForm" #ngForm="ngForm" (ngSubmit)="submitForm()">
+        <div class="inputs-area">
+            <mat-form-field>
+                <mat-label>Nome</mat-label>
+                <input matInput formControlName="title">
+            </mat-form-field>
+            @if(title.errors && title.errors['required'] && ngForm.submitted){
+                <p style="color:red; font-weight: 500">Esse campo é obrigatório</p>
+            }
+
+            <mat-form-field>
+                <mat-label>Descrição</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+            @if(description.errors && description.errors['required'] && ngForm.submitted){
+                <p style="color:red; font-weight: 500">Esse campo é obrigatório</p>
+            }
+            @if(description.errors && description.errors['minlength'] && ngForm.submitted){
+                <p style="color:red; font-weight: 500">
+                    Mínimo de caracteres exigido: {{description.errors['minlength'].requiredLength}}
+                    faltam {{description.errors['minlength'].requiredLength -description.errors['minlength'].actualLength}}
+                </p>
+            }
+            <div>
+                <button mat-button>{{titleForm}}</button>
+                <button mat-button>Cancelar</button>
+            </div>
+        </div>
+
+    </form>
+</div>
